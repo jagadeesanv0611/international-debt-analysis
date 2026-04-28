@@ -34,6 +34,9 @@ The objective of this project is to design and implement an International Debt A
 - Debt distribution across different indicators
 - Trends and patterns in international debt.
 
+  <img width="651" height="645" alt="image" src="https://github.com/user-attachments/assets/675e614a-df16-4d9c-840e-162f44a09784" />
+
+
 
 
 
