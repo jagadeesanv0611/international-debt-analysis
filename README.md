@@ -51,10 +51,10 @@ The objective of this project is to design and implement an International Debt A
 # SQL Analytical Questions (30)
 # Basic Queries
 1. Retrieve all distinct country names from the dataset.
-select Country_Name from country_table;
+- select Country_Name from country_table;
 
 2. Count the total number of countries available.
-select count(Country_Name) as total_no_of_countries from country_table;
+- select count(Country_Name) as total_no_of_countries from country_table;
 
 3. Find the total number of indicators present.
 select count(Series_Name) as total_no_of_indicators from series_table;
