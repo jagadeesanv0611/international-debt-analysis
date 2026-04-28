@@ -18,14 +18,14 @@ The objective of this project is to design and implement an International Debt A
         Design and implement a relational database in MySQL by creating tables for countries, indicators, and debt data, inserting cleaned data,
         defining primary and foreign keys, and writing SQL queries for analysis.
 - Data Visualization:
-        Develop data visualizations by connecting the SQL database to Power BI or a Streamlit app and creating dashboards with Plotly, Seaborn, or Matplotlib
-        to present country-wise and indicator-wise debt insights.
+        Develop data visualizations by connecting the SQL database to Streamlit app and creating dashboards with Matplotlib to
+        present country-wise and indicator-wise debt insights.
 
 # Technologies Used:
 - Python is used for Data processing.
 - Pandas and Numpy is used for Data Manipulation.
 - MYSQL is used for Data Storage.
-- Matplotlib and Plotly for Data visualization.
+- Matplotlib for Data visualization.
 - Streamlit is used as User Interface which acts as dashboards.
 
 # Insights and Reporting:
@@ -33,6 +33,8 @@ The objective of this project is to design and implement an International Debt A
 - Top countries with highest and lowest debt
 - Debt distribution across different indicators
 - Trends and patterns in international debt.
+
+
 
 
 
