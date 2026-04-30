@@ -184,11 +184,13 @@ from debt_fact_table d join country_table c on c.Country_Code = d.Country_Code;
 
 8. Find indicators where average debt is higher than overall average debt.
 - with global_avg as ( select cast(avg(Value) as decimal(20,2)) as avg_value from debt_fact_table )
+
 select s.Series_Name, cast(avg(d.Value) as decimal(20,2)) as average_debt from debt_fact_table d join series_table s on s.Series_Code = d.Series_Code
 group by s.Series_Name having average_debt > (select avg_value from global_avg);
 
 9. Identify countries contributing more than 5% of global debt.  ->  with - comm table exppresion (temp table)
 - with global_tot_debt as (select sum(value) as total_global_debt from debt_fact_table)
+
 select c.Country_Name, sum(d.Value) as total_debt, cast((((sum(d.Value)) / (select total_global_debt from global_tot_debt)) * 100) as decimal(20,2)) as percentage_value 
 from debt_fact_table d join country_table c on c.Country_Code = d.Country_Code group by c.Country_Name having percentage_value > 5 order by total_debt Desc;
 
