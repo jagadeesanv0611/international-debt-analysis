@@ -15,7 +15,7 @@
 # Technologies Used:
 - Programming: Python
 - Database: MySQL
-- Libraries: Pandas, NumPy, Plotly
+- Libraries: Pandas, Plotly
 - Visualization: Streamlit
 
 # Dataset:
