@@ -1,3 +1,26 @@
+# Project Title:
+- International Debt Analysis
+
+# Project Description:
+- This project analyzes international debt data using Python, SQL, and data visualization techniques to identify debt trends, country-level insights, and 
+  financial indicators through exploratory data analysis and interactive dashboards.
+
+# Objectives:
+- Analyze country-wise international debt
+- Perform exploratory data analysis (EDA)
+- Design and integrate relational database using MySQL
+- Generate debt insights using SQL queries
+- Create visualizations and dashboard for analysis
+
+# Technologies Used:
+- Programming: Python
+- Database: MySQL
+- Libraries: Pandas, NumPy, Plotly
+- Visualization: Streamlit
+
+# Dataset:
+- Source : International Debt Statistics Jan 2022 - Dataset
+
 # SQL Analysis:
 # SQL Analytical Questions (30)
 
