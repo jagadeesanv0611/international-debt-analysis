@@ -20,7 +20,40 @@ visualization tools.
 # Dataset:
 - Source : International Debt Statistics Jan 2022 - Dataset
 
-<img width="358" height="267" alt="image" src="https://github.com/user-attachments/assets/acaa4c54-b86c-48e7-bc98-d53c3447fb92" />
+# Table Structure:
+- country table:
+country code (primary key)
+country name
+region
+income group
+currency unit
+special notes
+<img width="401" height="272" alt="image" src="https://github.com/user-attachments/assets/b54182e2-b05c-4638-9884-bef0234ec74e" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # SQL Analysis:
