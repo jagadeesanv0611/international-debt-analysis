@@ -2,24 +2,26 @@
 - International Debt Analysis
 
 # Project Description:
-- This project analyzes international debt data using Python, SQL, and data visualization techniques to identify debt trends, country-level insights, and 
-  financial indicators through exploratory data analysis and interactive dashboards.
+- The project aim is to analyse the global debt from the given raw data with help of required data analysing tools and to predict the debt analysis for the
+future use.
 
 # Objectives:
-- Analyze country-wise international debt
-- Perform exploratory data analysis (EDA)
-- Design and integrate relational database using MySQL
-- Generate debt insights using SQL queries
-- Create visualizations and dashboard for analysis
+- Objective of this project is to collect the required raw data, clean the raw data into proper dataset and store in data base for further processing, perform
+Exploratory Data Analysis (EDA) to identify debt trends, country insights and financial indicators and show the performed data in interactive dashboard using data
+visualization tools.
 
 # Technologies Used:
-- Programming: Python
-- Database: MySQL
-- Libraries: Pandas, Plotly
-- Visualization: Streamlit
+- Python is used for programming, where data cleaning is done. It acts as interface between MySQL and Stream lit with help of coding.
+- Pandas is a python library, used to read the raw data file and convert it into data frame for processing.
+- MySQL acts as database, where cleaned data’s can be inserted for further use.
+- Plotly is for data visualization, where cleaned data can be transformed into useful chart for prediction.
+- Stream lit acts as a user interface and interactive dashboard, where the data’s can be visualized.
 
 # Dataset:
 - Source : International Debt Statistics Jan 2022 - Dataset
+
+<img width="358" height="267" alt="image" src="https://github.com/user-attachments/assets/acaa4c54-b86c-48e7-bc98-d53c3447fb92" />
+
 
 # SQL Analysis:
 # SQL Analytical Questions (30)
