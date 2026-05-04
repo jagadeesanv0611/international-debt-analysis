@@ -23,130 +23,128 @@ visualization tools.
 # Table Structure:
 <img width="1578" height="669" alt="image" src="https://github.com/user-attachments/assets/647d0267-76db-4a2c-ba71-1b84318ba64c" />
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # SQL Analysis:
 # SQL Analytical Questions (30)
 
 # Basic Queries
 # 1. Retrieve all distinct country names from the dataset.
 select country_name from country_table;
+<img width="1090" height="332" alt="image" src="https://github.com/user-attachments/assets/560c8035-cdf6-4608-a75b-7630ead2176f" />
 
 # 2. Count the total number of countries available.
 select count(country_name) as total_no_of_countries from country_table;
+<img width="1090" height="333" alt="image" src="https://github.com/user-attachments/assets/bfd999fe-e39a-45af-841e-a71d034e57a6" />
 
 # 3. Find the total number of indicators present.
 select count(series_name) as total_no_of_indicators from series_table;  
+<img width="1090" height="322" alt="image" src="https://github.com/user-attachments/assets/95db7bfe-4902-40b9-b3a4-1ee53df411c1" />
+
 
 # 4. Display the first 10 records of the dataset.
 select * from debt_fact_table limit 10;
+<img width="1090" height="334" alt="image" src="https://github.com/user-attachments/assets/d2226632-927b-4837-b7c6-0fa4839a54f0" />
+
 select c.country_name, s.series_name, d.year, d.value from debt_fact_table d 
 join country_table c on c.country_code = d.country_code join series_table s on s.series_code = d.series_code limit 10 ;
+<img width="1090" height="343" alt="image" src="https://github.com/user-attachments/assets/fd80320f-5d4e-4be7-84a4-dc0217814bb2" />
 
 # 5. Calculate the total global debt.
 select sum(value) as total_global_debt from debt_fact_table;
+<img width="1090" height="298" alt="image" src="https://github.com/user-attachments/assets/bccee507-f2cd-4bde-ae4a-22d5051b79ad" />
 
 # 6. List all unique indicator names.
 select series_name as unique_indicator_name from series_table;
+<img width="1090" height="301" alt="image" src="https://github.com/user-attachments/assets/03fe9a83-6635-4f8a-8da9-f70ca5bbf3d2" />
 
 # 7. Find the number of records for each country.
 select c.country_name, count(*) as no_of_records from debt_fact_table d join country_table c 
 on c.country_code = d.country_code group by c.country_name;
+<img width="1090" height="314" alt="image" src="https://github.com/user-attachments/assets/4060f21b-4d17-4f4b-96e8-101bff185c9d" />
 
 select c.country_name, count(*) as no_of_records from debt_fact_table d join country_table c 
  on c.country_code = d.country_code group by c.country_name order by no_of_records Desc;
+<img width="1090" height="304" alt="image" src="https://github.com/user-attachments/assets/8bcd033b-bbe5-4e79-837a-d8f52a38a691" />
 
 # 8. Display all records where debt is greater than 1 billion USD.
 select * from debt_fact_table where value > '1000000000' order by value Asc;
+<img width="1090" height="299" alt="image" src="https://github.com/user-attachments/assets/f7119d48-2c8f-4d94-8237-51463b91cef3" />
 
 # 9. Find the minimum, maximum, and average debt values.
 select min(value) as min_debt_value, max(value) as max_debt_value, avg(value) as avg_debt_value 
 from debt_fact_table where value > '0';
+<img width="1090" height="299" alt="image" src="https://github.com/user-attachments/assets/25ed5ce3-91a3-4a2b-a7cf-a67265fedf0a" />
 
 # 10. Count total number of records in the dataset.
 select count(*) as total_no_records from debt_fact_table;
-
-
+<img width="948" height="259" alt="image" src="https://github.com/user-attachments/assets/1e159e94-4033-4c98-a87e-81dc9950aded" />
 
 # Intermediate Level
 # 1. Find the total debt for each country.
 select c.country_name, sum(d.value) as total_debt from debt_fact_table d join country_table c 
 on c.country_code = d.country_code group by c.country_name;
+<img width="1090" height="294" alt="image" src="https://github.com/user-attachments/assets/a757599c-f737-4598-9b76-76697a55b667" />
 
 # 2. Display the top 10 countries with the highest total debt.
 select c.country_name, sum(d.value) as highest_total_debt, sum(d.value) as lowest_total_debt 
 from debt_fact_table d join country_table c on c.country_code = d.country_code 
 group by c.country_Name order by highest_total_debt desc limit 10;
+<img width="1090" height="305" alt="image" src="https://github.com/user-attachments/assets/27b0dbd6-21a3-4e5e-a1ff-d79be5e768ec" />
 
 select c.country_name, sum(d.value) as lowest_total_debt from debt_fact_table d join country_table c 
 on c.country_code = d.country_codegroup by c.country_name order by lowest_total_debt asc limit 10;
+<img width="1090" height="304" alt="image" src="https://github.com/user-attachments/assets/40f1277c-9425-4146-b891-7ca403892404" />
 
 # 3. Find the average debt per country.
 select c.country_name, avg(d.value) as average_debt from debt_fact_table d join country_table c 
 on c.country_code = d.country_code group by c.country_name order by average_debt desc;
+<img width="1090" height="304" alt="image" src="https://github.com/user-attachments/assets/c3516017-9585-4189-b4bc-42d312b7eb8c" />
 
 # 4. Calculate total debt for each indicator.
 select s.series_name, sum(d.value) as total_debt from debt_fact_table d join series_table s 
 on s.series_code = d.series_code group by s.series_name;
+<img width="1090" height="304" alt="image" src="https://github.com/user-attachments/assets/815db277-3f86-43da-be05-2767af711263" />
 
 # 5. Identify the indicator contributing the highest total debt.
 select s.series_name, sum(d.value) as highest_total_debt from debt_fact_table d join series_table s on s.series_code = d.series_code 
-group by s.series_name order by highest_total_debt desc limit 10;
+group by s.series_name having lowest_total_debt > '0' order by highest_total_debt desc limit 10;
+<img width="1090" height="316" alt="image" src="https://github.com/user-attachments/assets/f7c5def0-8839-484f-9afb-f7c66d1582d6" />
 
 select s.series_name, sum(d.value) as lowest_total_debt from debt_fact_table d join series_table s on s.series_code = d.series_code 
-group by s.series_name having lowest_total_debt > 0 order by lowest_total_debt asc limit 10 ;
+group by s.series_name having lowest_total_debt > '0' order by lowest_total_debt asc limit 10 ;
+<img width="1090" height="302" alt="image" src="https://github.com/user-attachments/assets/d4a96008-ea3a-4919-98c6-f61f443b3bd3" />
 
 # 6. Find the country with the lowest total debt.
 select c.country_name, sum(d.value) as lowest_total_debt from debt_fact_table d join country_table c on c.country_code = d.country_code
 group by c.country_name order by lowest_total_debt asc limit 1;
+<img width="1090" height="317" alt="image" src="https://github.com/user-attachments/assets/4c1ab440-7f50-443b-9dca-7829eeaeaeaf" />
 
 # 7. Calculate total debt for each country and indicator combination.
 select c.country_name, s.series_name, sum(d.value) as total_debt from debt_fact_table d join country_table c on c.country_code = d.country_code
 join series_table s on s.series_code = d.series_code group by c.country_name, s.series_name;
+<img width="1090" height="322" alt="image" src="https://github.com/user-attachments/assets/862d3e57-67fd-4732-b265-8879fcf423d2" />
+
 
 # 8. Count how many indicators each country has.
 select c.country_name, Count(s.series_code) as total_indicators from country_series_table cs join country_table c on c.country_code = cs.country_code
 join series_table s on s.series_code = cs.series_code group by cs.country_code;
+<img width="1090" height="319" alt="image" src="https://github.com/user-attachments/assets/e0e596af-9059-4c93-ae8a-6cb115c7bcbe" />
 
 select c.country_name, Count(s.series_code) as total_indicators from debt_fact_table d join country_table c on c.country_code = d.country_code
 join series_table s on s.series_code = d.series_code group by d.country_code;
+<img width="1090" height="303" alt="image" src="https://github.com/user-attachments/assets/4d816f6a-c699-4695-8b37-0208c1f1bf9a" />
 
 # 9. Display countries whose total debt is above the global average.
 with global_avg As
  ( Select avg(Value) as avg_value from debt_fact_table )
 select c.country_Name, sum(d.value) as total_debt from debt_fact_table d join country_table c on c.country_code = d.country_code 
 group by c.country_name Having total_debt > (select avg_value from global_avg);
+<img width="1090" height="325" alt="image" src="https://github.com/user-attachments/assets/1829f4df-e582-40ef-a2d7-834a7dee8899" />
+
 
 # 10. Rank countries based on total debt (highest to lowest).
 select dense_rank() over ( order by Sum(d.value) desc) as debt_rank, c.country_Name, Sum(d.value) as total_debt 
 from debt_fact_table d join country_table c on c.country_code = d.country_code group by c.country_name order by total_debt Desc;
+<img width="1090" height="303" alt="image" src="https://github.com/user-attachments/assets/7978c90d-5d28-4277-95a3-ed1b07c8808e" />
 
 
 
