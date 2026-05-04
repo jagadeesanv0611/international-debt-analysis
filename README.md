@@ -146,18 +146,18 @@ select dense_rank() over ( order by Sum(d.value) desc) as debt_rank, c.country_N
 from debt_fact_table d join country_table c on c.country_code = d.country_code group by c.country_name order by total_debt Desc;
 <img width="1090" height="303" alt="image" src="https://github.com/user-attachments/assets/7978c90d-5d28-4277-95a3-ed1b07c8808e" />
 
-
-
 # Advanced level
 # 1. Find the top 5 indicators contributing most to global debt.
 select s.Series_Name, sum(d.Value) as total_debt from debt_fact_table d join series_table s on s.Series_Code = d.Series_Code 
 group by s.Series_Name order by total_debt Desc limit 5;
+<img width="1090" height="336" alt="image" src="https://github.com/user-attachments/assets/2782cfff-8f46-473b-9f46-75c022fc8263" />
 
 # 2. Calculate percentage contribution of each country to total global debt.
 with global_total_debt as (
 select sum(value) as total_global_debt from debt_fact_table)
 select c.country_name, sum(d.value) as total_debt, cast((((sum(d.value)) / (select total_global_debt from global_total_debt)) * 100) as decimal (20,2)) as percentage_value 
 from debt_fact_table d join country_table c on c.country_code = d.country_code group by c.country_name;
+<img width="1090" height="337" alt="image" src="https://github.com/user-attachments/assets/1c75b105-26c3-4e7d-b4ee-02816d6f8728" />
 
 # 3. Identify the top 3 countries for each indicator based on debt.
 SELECT country_name, series_name, total_debt
@@ -168,19 +168,19 @@ FROM (
         GROUP BY c.country_name, s.series_name
 ) ranked
 WHERE rank_num <= 3;
+<img width="1090" height="411" alt="image" src="https://github.com/user-attachments/assets/4475beb1-ab62-436c-a35d-32b121388ef0" />
 
 # 4. Find the difference between maximum and minimum debt for each country.
-select c.country_name, max(d.value) as max_debt, min(d.value) as min_debt, (max(d.value) - min(d.value) ) as dif_max_min 
-from debt_fact_table d join country_table c on c.country_code = d.country_code group by c.country_name;
-
 select c.country_name, max(d.value) as max_debt, min(d.value) as min_debt, (max(d.value) - min(d.Value) ) as dif_max_min 
 from debt_fact_table d join country_table c on c.country_code = d.country_code where d.Value > '0' group by c.country_name;
+<img width="1090" height="304" alt="image" src="https://github.com/user-attachments/assets/76ad6af5-7d1f-40c9-bf8c-619e3cdef648" />
 
 # 5. Create a view for the top 10 countries with highest debt.
 CREATE VIEW top_10_countries_highest_debt AS
 SELECT c.country_name, SUM(d.value) AS highest_debt FROM debt_fact_table d JOIN country_table c ON c.country_code = d.country_code
 GROUP BY c.country_name ORDER BY highest_debt DESC LIMIT 10;
 select * from top_10_countries_highest_debt;
+<img width="1090" height="354" alt="image" src="https://github.com/user-attachments/assets/761642c7-bba2-41bf-86cd-54b2d0e01cfc" />
 
 # 6. Categorize countries into: High Debt Medium Debt Low Debt (based on thresholds)
 SELECT c.country_name, SUM(d.value) AS total_debt,
@@ -190,6 +190,7 @@ SELECT c.country_name, SUM(d.value) AS total_debt,
         ELSE 'Low Debt'
     END AS debt_category
 FROM debt_fact_table d JOIN country_table c ON c.country_code = d.country_code GROUP BY c.country_name ORDER BY total_debt DESC;
+<img width="864" height="368" alt="image" src="https://github.com/user-attachments/assets/f918a2bc-563a-4b70-9bea-a5354966bb0f" />
 
 # 7. Use window functions to calculate cumulative debt per country.
 WITH debt_data AS (
@@ -201,11 +202,13 @@ SELECT country_name, year, value, SUM(value) OVER (
         ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW
     ) AS cumulative_debt
 FROM debt_data ORDER BY country_name, year;
+<img width="1090" height="448" alt="image" src="https://github.com/user-attachments/assets/af2129ed-4e15-4af7-aa66-203edfe8116f" />
 
 # 8. Find indicators where average debt is higher than overall average debt.
 with global_avg as ( select cast(avg(value) as decimal(20,2)) as avg_value from debt_fact_table )
 select s.series_name, cast(avg(d.value) as decimal(20,2)) as average_debt from debt_fact_table d join series_table s
  on s.series_code = d.series_code group by s.series_name having average_debt > (select avg_value from global_avg);
+<img width="1090" height="333" alt="image" src="https://github.com/user-attachments/assets/8b847bad-2b7f-4931-81d7-0ad060487067" />
 
 # 9. Identify countries contributing more than 5% of global debt. -> with - comm table exppresion (temp table)
 with global_tot_debt as (select sum(value) as total_global_debt from debt_fact_table)
@@ -213,6 +216,7 @@ select c.country_name, sum(d.value) as total_debt, cast((((sum(d.value)) / (sele
 as decimal(20,2)) as percentage_value 
 from debt_fact_table d join country_table c on c.country_code = d.country_code 
 group by c.country_name having percentage_value > 5 order by total_debt Desc;
+<img width="1090" height="339" alt="image" src="https://github.com/user-attachments/assets/f7586d96-b2e8-49de-b522-191cba3474ae" />
 
 # 10. Find the most dominant indicator (highest contribution) for each country.
 WITH country_indicator_totals AS (
@@ -223,5 +227,11 @@ ranked_indicators AS ( SELECT *,  ROW_NUMBER() OVER ( PARTITION BY country_name 
 FROM country_indicator_totals )
 SELECT country_name, series_name, total_value AS highest_contribution FROM ranked_indicators WHERE rn = 1
 ORDER BY highest_contribution DESC;
+<img width="1090" height="371" alt="image" src="https://github.com/user-attachments/assets/160091a1-b60a-4ae4-b496-c71e07bdaa03" />
+
+
+
+
+ 
 
 
