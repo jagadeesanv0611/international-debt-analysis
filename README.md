@@ -20,6 +20,9 @@ visualization tools.
 # Dataset:
 - Source : International Debt Statistics Jan 2022 - Dataset
 
+# Project structure:
+<img width="903" height="532" alt="image" src="https://github.com/user-attachments/assets/ec26d21f-5cb8-482b-b34a-7a2785b439f5" />
+
 # Table Structure:
 <img width="1578" height="669" alt="image" src="https://github.com/user-attachments/assets/647d0267-76db-4a2c-ba71-1b84318ba64c" />
 
