@@ -26,6 +26,34 @@ visualization tools.
 # Table Structure:
 <img width="1578" height="669" alt="image" src="https://github.com/user-attachments/assets/647d0267-76db-4a2c-ba71-1b84318ba64c" />
 
+# Reports:
+Top 10 countries highest debt:
+<img width="993" height="509" alt="image" src="https://github.com/user-attachments/assets/e2bc7b55-4429-47f8-89eb-03ef52ffb9f3" />
+ 
+Top 10 countries lowest debt:
+<img width="983" height="499" alt="image" src="https://github.com/user-attachments/assets/fe9efa48-e7a6-41e2-9df3-11f658a30fb8" />
+
+Percentage of Global debt:
+<img width="969" height="443" alt="image" src="https://github.com/user-attachments/assets/1a737156-bbe3-4172-8268-5720664eb4dc" />
+
+Heatmap:
+<img width="980" height="491" alt="image" src="https://github.com/user-attachments/assets/0edccdd1-f53d-4539-8bec-fc439dcc27d3" />
+
+Countries by debt category:
+<img width="976" height="447" alt="image" src="https://github.com/user-attachments/assets/42a7d95c-e1a7-47c2-9599-806cac2d3d21" />
+
+Global debt trend:
+<img width="1090" height="483" alt="image" src="https://github.com/user-attachments/assets/44e9e754-be25-4671-ac11-f83e7f3ab0d9" />
+
+Debt trends for top 10 countries:
+<img width="1090" height="485" alt="image" src="https://github.com/user-attachments/assets/e24156bf-af19-4eb0-9afb-6406d2091d8f" />
+
+Top 10 indicators with high debt distribution:
+<img width="932" height="423" alt="image" src="https://github.com/user-attachments/assets/f5253b78-76c8-4521-a60e-2f6f3f899c6f" />
+
+Top 10 indicators with lowest debt distribution:
+<img width="952" height="467" alt="image" src="https://github.com/user-attachments/assets/830783f9-8201-466f-be2b-95178cadc589" />
+
 # SQL Analysis:
 # SQL Analytical Questions (30)
 
